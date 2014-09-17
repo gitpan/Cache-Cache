@@ -1,14 +1,26 @@
-# http://module-build.sourceforge.net/META-spec.html
-#XXXXXXX This is a prototype!!!  It will change in the future!!! XXXXX#
-name:         Cache-Cache
-version:      1.05
-version_from: lib/Cache/Cache.pm
-installdirs:  site
+---
+abstract: unknown
+author:
+  - unknown
+build_requires:
+  ExtUtils::MakeMaker: '0'
+configure_requires:
+  ExtUtils::MakeMaker: '0'
+dynamic_config: 1
+generated_by: 'ExtUtils::MakeMaker version 6.98, CPAN::Meta::Converter version 2.142060'
+license: unknown
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: '1.4'
+name: Cache-Cache
+no_index:
+  directory:
+    - t
+    - inc
 requires:
-    Digest::SHA1:                  2.02
-    Error:                         0.15
-    File::Spec:                    0.82
-    Storable:                      1.014
-
-distribution_type: module
-generated_by: ExtUtils::MakeMaker version 6.17
+  Digest::SHA1: '2.02'
+  Error: '0.15'
+  File::Spec: '0.82'
+  IPC::ShareLite: '0.09'
+  Storable: '1.014'
+version: '1.07'

@@ -554,13 +554,13 @@ sub _test_sixteen
 
   my $expires_in = $EXPIRES_DELAY;
 
-  eval
-  {
+  my $ok = eval {
     $cache = $cache->new( { 'auto_purge_interval' => $expires_in } );
+    1;
   };
 
-  ( not defined @$ ) ?
-    $self->ok( ) : $self->not_ok( "couldn't create autopurge cache" );
+  $ok ? $self->ok( )
+      : $self->not_ok( "couldn't create autopurge cache" );
 }
 
 

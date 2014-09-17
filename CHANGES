@@ -1,6 +1,9 @@
 Revision history for Cache
 
-1.06 in progress
+1.07 2014-09-17
+ - fix a bug where we checked @$ instead of $@ after eval
+
+1.06 2009-02-28
  - updated the project homepage and added notes about the CHI project
  - fixed extra "use vars" in CacheUtils
 
@@ -12,7 +15,7 @@ Revision history for Cache
 1.04 2005-03-17-11-23
  - release version 1.04
  - repair permissions on temp cache files
- 
+
 1.03 2004-10-04-11-23
  - release version 1.03
  - modified the FileBackend to use the more robust File::Temp
@@ -52,10 +55,10 @@ Revision history for Cache
  - released version 0.99
  - major refactoring of code
  - replaced non-standard usage of SUCCESS and FAILURE with Error.pm
- - replaced non-standard usage of TRUE and FALSE with 1 and 0 
+ - replaced non-standard usage of TRUE and FALSE with 1 and 0
  - migrated from the term "identifier" to the more standard term "key"
    and marked the old public methods with identifier as deprecated
- - broke out the MemoryBackend, FileBackend, SharedMemoryBackend into 
+ - broke out the MemoryBackend, FileBackend, SharedMemoryBackend into
    distinct and reusable classes
  - fixed a long outstanding bug in the unit tests that made working
    caches appear to fail
@@ -99,7 +102,7 @@ Revision history for Cache
  - released version 0.07
  - prepared for initial CPAN release
  - improved Cache::Cache documentation
- - removed last "use IPC::Shareable" 
+ - removed last "use IPC::Shareable"
  - added support in the Makefile.PL to conditionally build the
    SharedMemoryCache, which requires IPC::ShareLite, and thus runs only
    on certain architectures.  Also broke out the IPC related routines
@@ -109,7 +112,7 @@ Revision history for Cache
 0.06 2001-03-23-08-36
  - release version 0.06
  - added the get_identifiers method to the Cache interface, implemented
-   the method for all classes, added a new test, and updated the test 
+   the method for all classes, added a new test, and updated the test
    scripts
  - added the size property to Object
  - added the _freeze and _thaw methods to the BaseCache class and
@@ -129,7 +132,7 @@ Revision history for Cache
  - added exclusive locking on the shared cache for operations that
    will both read and write to the cache
  - replaced the cache_hash_ref instance property in MemoryCache with
-   a class property and updated the SharedMemoryCache and 
+   a class property and updated the SharedMemoryCache and
    SizeAwareSharedMemoryCache modules accordingly
  - started version 0.06
 
@@ -151,12 +154,12 @@ Revision history for Cache
 0.03 2001-03-10-12-40
  - released version 0.03
  - made the FileCache more multi-user friendly by allowing a more
-   permissive default directory umask, which can also be optionally 
+   permissive default directory umask, which can also be optionally
    overridden
  - updated documentation and code style
  - completely rewrote and improved the limit_size method for a major
    performance gain
- - updated the syntax for expiration times to include the [number] [unit] 
+ - updated the syntax for expiration times to include the [number] [unit]
    format, e.g. "10 seconds"
  - added the get_object method to the Cache interface, which allows
    access to the underlying cache object (without potentially expiring
